@@ -151,8 +151,6 @@ select#form-select-region>option {
   transform: scale(0.7);
 }
 
-/* TODO: SOLVE ARROW-BOTTOM BUG */
-
 @media screen and (max-width: 770px) {
   div#top-component {
     flex-direction: column;
@@ -177,11 +175,12 @@ select#form-select-region>option {
 
   #search-icon {
     top: 12rem;
+    transform: scale(1);
   }
 
   .arrow-bottom {
     top: 20.2rem;
-    left: 12%;
+    left: 12rem;
   }
 }
 
@@ -199,5 +198,9 @@ select#form-select-region>option {
 
   .material-icons-outlined {
     transform: scale(0.83333);
+  }
+
+  .arrow-bottom {
+    left: 15.7rem;
   }
 }
