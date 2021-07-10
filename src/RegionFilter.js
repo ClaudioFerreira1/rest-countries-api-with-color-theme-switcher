@@ -1,9 +1,9 @@
 function RegionFilter() {
   return (
     <>
-      <form>
-        <select id="form-select-region">
-          <option value="all">Filter by Region</option>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <select id="form-select-region" onChange={(e) => { console.log(e.target.value) }}>
+          <option defaultValue value="all">Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
           <option value="asia">Asia</option>
