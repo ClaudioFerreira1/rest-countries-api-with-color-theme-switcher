@@ -18,13 +18,9 @@ const AppProvider = ({ children }) => {
 
       if (data.status === 404) {
         setError(true)
-        console.log("deu ruim")
-        console.log(data)
       } else {
         setCountries(data);
         setError(false);
-        console.log("deu bom")
-        console.log(data)
       }
       setIsLoading(false)
 
@@ -33,11 +29,9 @@ const AppProvider = ({ children }) => {
     }
   }
 
-
   useEffect(() => {
     fetchCountries(`${API_ENDPOINT}${query}`)
   }, [query])
-
 
   return <AppContext.Provider value={{ isLoading, error, countries, query, setQuery }}>{children}</AppContext.Provider>
 }
