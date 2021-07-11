@@ -189,8 +189,7 @@ select#form-select-region>option {
   height: 33.6rem;
   text-align: center;
   background-color: var(--white);
-  box-shadow: 0.2rem 0.2rem 0.2rem var(--medium-gray);
-  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem var(--medium-gray);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
   border-radius: 0.5rem;
   text-decoration: none;
   text-align: left;
@@ -263,6 +262,93 @@ div.country-not-found {
   justify-content: center;
   width: 100vw;
   height: 80vh;
+}
+
+.single-country-main-section {
+  width: 90vw;
+  height: 52.1rem;
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 14rem;
+}
+
+.btn-style {
+  background-color: var(--white);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.8rem;
+  border-radius: 0.6rem;
+  color: var(--very-dark-blue);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+}
+
+.main-div-section {
+  margin-top: 8rem;
+  height: 40.1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.main-div-section img {
+  width: 56rem;
+  height: 40.1rem;
+  border-radius: 1.2rem;
+  object-fit: cover;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+}
+
+div.country-description {
+  width: 59.8rem;
+  height: 32.3rem;
+}
+
+div.country-description-information {
+  margin-top: 2.3rem;
+  display: flex;
+  flex-direction: row;
+  column-gap: 5rem;
+}
+
+div.country-description-information p {
+  line-height: 3.2rem;
+  font-weight: 300;
+}
+
+div.country-description-information span,
+div.border-countries-div span {
+  font-weight: 800;
+}
+
+div.border-countries-div {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.border-countries-div span {
+  line-height: 2.4rem;
+}
+
+.border-countries-links {
+  background-color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.6rem;
+  color: var(--very-dark-blue);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+}
+
+.border-countries-div-links {
+  margin-top: 1.5rem;
+  display: flex;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 770px) {

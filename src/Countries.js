@@ -21,12 +21,12 @@ function Countries() {
         return <Link to={`/country/${country.name.toLowerCase()}`} className="country-card" key={country.alpha3Code}>
           <img src={country.flag} alt={country.name} />
           <div className='div-title'>
-            <h2>{country.name.toString().length > 19 ? `${country.name.substring(0, 19)}...` : country.name}</h2>
+            <h2>{country.name.toString().length > 18 ? `${country.name.substring(0, 18)}...` : country.name}</h2>
           </div>
           <div className='div-description'>
             <p><span>Population:</span> {country.population.toLocaleString()}</p>
-            <p><span>Region:</span> {country.region}</p>
-            <p><span>Capital:</span> {country.capital}</p>
+            <p><span>Region:</span> {country.region === "" ? "-" : country.region}</p>
+            <p><span>Capital:</span> {country.capital === "" ? "-" : country.capital}</p>
           </div>
         </Link>
       })}

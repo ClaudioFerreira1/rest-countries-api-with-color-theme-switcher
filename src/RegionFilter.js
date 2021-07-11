@@ -3,11 +3,12 @@ import { useGlobalContext } from './context'
 
 function RegionFilter() {
   const { setQuery } = useGlobalContext();
+
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()}>
         <select id="form-select-region" onChange={(e) => { setQuery(e.target.value) }}>
-          <option defaultValue value="all">Filter by Region</option>
+          <option defaultValue value="all">All regions</option>
           <option value="region/africa">Africa</option>
           <option value="region/americas">Americas</option>
           <option value="region/asia">Asia</option>

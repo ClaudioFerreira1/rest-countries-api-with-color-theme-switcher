@@ -36,10 +36,50 @@ function Country() {
   } else if (error) {
     return <Error />
   } else {
-    const { name, topLevelDomain, capital, region, subregion, population, borders, currencies, languages, flag } = country[0]
+    const { name, topLevelDomain, capital, region, subregion, population, borders, currencies, languages, flag, nativeName } = country[0]
+    console.log(borders)
     return (<>
       <NavBar />
-      <h1>Countrie info</h1>
+      <section className='single-country-main-section'>
+        <Link className="btn-style">
+          <span class="material-icons-outlined">
+            arrow_back
+          </span>
+          Back
+        </Link>
+        <div className="main-div-section">
+          <img src={flag} alt={`${name}-flag`} />
+          <div className="country-description">
+            <h1>{name}</h1>
+            <div className="country-description-information">
+              <div>
+                <p><span>Native Name: </span>{nativeName}</p>
+                <p><span>Population: </span>{population.toLocaleString()}</p>
+                <p><span>Region: </span>{region === "" ? "-" : region}</p>
+                <p><span>Subregion: </span>{subregion === "" ? "-" : subregion}</p>
+                <p><span>Capital: </span>{capital === "" ? "-" : capital}</p>
+              </div>
+              <div>
+                <p><span>Top Level Domain: </span>{topLevelDomain}</p>
+                <p><span>Currencies: </span>{currencies.map((currency) => {
+                  return currency.name
+                }).join(", ")}</p>
+                <p><span>Languages: </span>{languages.map((language) => {
+                  return language.name
+                }).join(", ")}</p>
+              </div>
+            </div>
+            <div className="border-countries-div">
+              <p><span>Border Countries:</span></p>
+              <div className="border-countries-div-links">
+                {borders.length === 0 ? "This country has no border countries because it is an island." : borders.map((country) => {
+                  return <Link className="border-countries-links">{country}</Link>
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>)
   }
 }
