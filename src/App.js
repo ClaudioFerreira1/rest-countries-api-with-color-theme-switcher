@@ -9,7 +9,7 @@ function App() {
       <Route path='/' exact>
         <Home />
       </Route>
-      <Route path='/country/:name' children={<Country />} />
+      <Route path='/country/:countryName' children={<Country />} />
     </Switch>
   )
 }

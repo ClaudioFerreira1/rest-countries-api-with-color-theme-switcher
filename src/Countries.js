@@ -2,17 +2,22 @@ import React from 'react'
 import { useGlobalContext } from './context'
 import { Link } from 'react-router-dom'
 import ErrorPage from './Error'
+import CountryNotFound from './CountryNotFound'
 
 function Countries() {
-  const { error, countries, isLoading } = useGlobalContext();
+  const { error, countries, isLoading, filterCountries } = useGlobalContext();
 
   if (isLoading) {
-    return <div className="loading"></div>
+    return <div className="div-loading-countries">
+      <div className="loading"></div>
+    </div>
   } else if (error) {
     return <ErrorPage />
+  } else if (countries.filter(countryF => countryF.name.toLowerCase().includes(filterCountries.toLowerCase())).length === 0) {
+    return <CountryNotFound />
   } else {
     return <section className="countries-section">
-      {countries.map((country) => {
+      {countries.filter(countryF => countryF.name.toLowerCase().includes(filterCountries.toLowerCase())).map((country) => {
         return <Link to={`/country/${country.name.toLowerCase()}`} className="country-card" key={country.alpha3Code}>
           <img src={country.flag} alt={country.name} />
           <div className='div-title'>

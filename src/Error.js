@@ -1,6 +1,8 @@
 function ErrorPage() {
-  return (
-    <h1>This is the error page</h1>
+  return (<div className="error-page">
+    <div className="emoji"></div>
+    <h1>Sorry, something went wrong in our part. Try again later.</h1>
+  </div>
   )
 }
 

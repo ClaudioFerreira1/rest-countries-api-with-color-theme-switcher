@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState(false)
   const [countries, setCountries] = useState([])
   const [query, setQuery] = useState('all')
+  const [filterCountries, setFilterCountries] = useState('')
 
   async function fetchCountries(url) {
     setIsLoading(true);
@@ -33,7 +34,7 @@ const AppProvider = ({ children }) => {
     fetchCountries(`${API_ENDPOINT}${query}`)
   }, [query])
 
-  return <AppContext.Provider value={{ isLoading, error, countries, query, setQuery }}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{ isLoading, error, countries, query, setQuery, filterCountries, setFilterCountries }}>{children}</AppContext.Provider>
 }
 
 export const useGlobalContext = () => {

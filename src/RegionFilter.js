@@ -1,14 +1,18 @@
+import React from 'react'
+import { useGlobalContext } from './context'
+
 function RegionFilter() {
+  const { setQuery } = useGlobalContext();
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()}>
-        <select id="form-select-region" onChange={(e) => { console.log(e.target.value) }}>
+        <select id="form-select-region" onChange={(e) => { setQuery(e.target.value) }}>
           <option defaultValue value="all">Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+          <option value="region/africa">Africa</option>
+          <option value="region/americas">Americas</option>
+          <option value="region/asia">Asia</option>
+          <option value="region/europe">Europe</option>
+          <option value="region/oceania">Oceania</option>
         </select>
         <span className="material-icons-outlined arrow-bottom">
           expand_more
