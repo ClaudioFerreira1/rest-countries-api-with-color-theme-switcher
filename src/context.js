@@ -4,6 +4,14 @@ export const API_ENDPOINT = "https://restcountries.eu/rest/v2/"
 
 const AppContext = React.createContext();
 
+const getStorageTheme = () => {
+  let theme = "light-mode"
+  if (localStorage.getItem('theme')) {
+    theme = localStorage.getItem('theme')
+  }
+  return theme
+}
+
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -11,6 +19,15 @@ const AppProvider = ({ children }) => {
   const [query, setQuery] = useState('all')
   const [filterCountries, setFilterCountries] = useState('')
   const [allCountries, setAllCountries] = useState([])
+  const [isLightMode, setLightMode] = useState(getStorageTheme())
+
+  const toggleTheme = () => {
+    if (isLightMode === "light-mode") {
+      setLightMode("dark-mode")
+    } else {
+      setLightMode("light-mode")
+    }
+  }
 
   async function fetchCountries(url) {
     setIsLoading(true);
@@ -36,7 +53,12 @@ const AppProvider = ({ children }) => {
     fetchCountries(`${API_ENDPOINT}${query}`)
   }, [query])
 
-  return <AppContext.Provider value={{ isLoading, error, countries, query, setQuery, filterCountries, setFilterCountries, allCountries }}>{children}</AppContext.Provider>
+  useEffect(() => {
+    document.documentElement.className = isLightMode
+    localStorage.setItem("theme", isLightMode)
+  }, [isLightMode])
+
+  return <AppContext.Provider value={{ isLoading, error, countries, query, setQuery, filterCountries, setFilterCountries, allCountries, isLightMode, toggleTheme }}>{children}</AppContext.Provider>
 }
 
 export const useGlobalContext = () => {

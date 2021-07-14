@@ -21,7 +21,7 @@ body {
    color: ; */
 }
 
-:root {
+.light-mode {
   --dark-blue: hsl(209, 23%, 22%);
   --medium-dark-blue: hsl(207, 26%, 17%);
   --very-dark-blue: hsl(200, 15%, 8%);
@@ -30,6 +30,17 @@ body {
   --background-color: hsl(0, 0%, 98%);
   --white: hsl(0, 0%, 100%);
   --black: #000;
+}
+
+.dark-mode {
+  --dark-blue: hsl(209, 23%, 22%);
+  --medium-dark-blue: hsl(207, 26%, 17%);
+  --very-dark-blue: hsl(0, 0%, 100%);
+  --medium-gray: hsla(0, 0%, 0%, 0.06);
+  --dark-gray: hsl(0, 0%, 100%);
+  --background-color: hsl(207, 26%, 17%);
+  --white: hsl(209, 23%, 22%);
+  --black: hsl(0, 0%, 100%);
 }
 
 h1 {
@@ -60,6 +71,12 @@ h2 {
   justify-content: space-between;
   box-shadow: 0 0.2rem 0.2rem var(--medium-gray);
   background-color: var(--white);
+}
+
+.material-icons-outlined,
+.material-icons,
+.button-change-dark-mode {
+  color: var(--black);
 }
 
 #top-navbar button {
@@ -104,6 +121,10 @@ div#top-component input[type=text] {
   line-height: 2.0rem;
   color: var(--dark-gray);
   outline: none;
+}
+
+div#top-component input[type=text]::placeholder {
+  color: var(--dark-gray);
 }
 
 #search-icon {
@@ -356,7 +377,7 @@ div.border-countries-div span {
 
 @media screen and (max-width: 1280px) {
   .main-div-section {
-    margin-top: 5rem;
+    margin-top: 3.5rem;
     flex-direction: column;
     align-items: center;
   }
@@ -367,7 +388,7 @@ div.border-countries-div span {
   }
 
   div.country-description {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   div.country-description-information {
@@ -376,11 +397,13 @@ div.border-countries-div span {
 
   .border-countries-div-links {
     justify-content: center;
+    text-align: center;
   }
 
   div.main-div-section img {
     width: 100%;
-    height: 60rem;
+    max-width: 64rem;
+    height: 40rem;
   }
 
 }
@@ -434,6 +457,10 @@ div.border-countries-div span {
     text-align: center;
   }
 
+  div.country-description-information p {
+    text-align: center;
+  }
+
   div.country-description {
     width: 85vw;
   }
@@ -444,6 +471,20 @@ div.border-countries-div span {
   h2 {
     font-size: 1.6rem;
     line-height: 2rem;
+  }
+
+  div.country-description h1 {
+    font-size: 2.8rem;
+    line-height: 3rem;
+  }
+
+  div.country-description-information {
+    margin-top: 1.6rem;
+  }
+
+  div.country-description-information p {
+    font-size: 14px;
+    line-height: 32px;
   }
 
   #top-navbar button {
@@ -458,4 +499,18 @@ div.border-countries-div span {
   .arrow-bottom {
     left: 15.7rem;
   }
+
+  div.main-div-section img {
+    border-radius: 1rem;
+    min-height: 25rem;
+  }
+
+  div.border-countries-div {
+    margin-top: 2.8rem;
+  }
+
+  div.border-countries-div-links {
+    margin-top: 1.6rem;
+  }
+
 }

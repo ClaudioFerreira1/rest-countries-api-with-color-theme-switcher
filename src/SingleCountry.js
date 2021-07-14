@@ -26,7 +26,11 @@ function Country() {
   }
 
   useEffect(() => {
-    fetchCountrie(`${API_ENDPOINT}name/${countryName}`)
+    if (countryName === "india") {
+      fetchCountrie("https://restcountries.eu/rest/v2/capital/new%20d")
+    } else {
+      fetchCountrie(`${API_ENDPOINT}name/${countryName}`)
+    }
   }, [countryName])
 
   if (isLoading) {
