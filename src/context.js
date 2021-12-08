@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 
-export const API_ENDPOINT = "https://restcountries.eu/rest/v2/"
+export const API_ENDPOINT = "https://restcountries.com/v2/"
 
 const AppContext = React.createContext();
 
